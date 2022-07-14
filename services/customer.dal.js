@@ -2,7 +2,7 @@ const dal = require("./postdb");
 
 let getRentals = async (body) => {
   let { email } = body;
-  console.log("post attempted");
+  console.log(" Get Rentals Post Attempted");
   DEBUG && console.log(email);
   const sql = `SELECT full_name, title, rental_date  FROM vw_customer_rentals_last_12_months
     WHERE email = '${email}'`;
