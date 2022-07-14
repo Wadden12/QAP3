@@ -11,7 +11,7 @@ global.DEBUG = true;
 const customerRouter = require("./routes/customer");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", async (req, res) => {
