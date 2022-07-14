@@ -3,8 +3,8 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <div class="actors content">
-            <h2 class="text-center">Customer Task</h2>
-
+            <h2 class="text-center">Customer Movie Rentals For The Last 12 Months</h2>
+            <div class=" container">
             <form  method ="post" class="form-inline ">
                
                 <div class="form-group mx-sm-3 mb-2">
@@ -13,14 +13,24 @@
                 </div>
                 <button type="submit" class="btn btn-dark mb-2">Submit</button>
               </form>
-              <h2><% locals.rental.full_name %> </h2>
+              
+            
+            
               <% if (locals.rental) { %>
-              <div class="table-responsive">
-                <table class="table table-dark ">
+                
+            
+              
+                <table class="table table-dark table-striped ">
                 <thead>
+                    <tr>
+                        <th colspan="3"> Customer Name: <%=locals.rental[0].full_name%> 
+                                 Has <%=locals.rentalCount[0].count %> Movies Rented</th>
+                       
+                    </tr>
                     <tr>
                         <th scope ="col">#</th>
                         <th scope ="col">Movie</th>
+                        <th scope ="col">Rental Date</th>
                     </tr>
                 </thead>
              <tbody>
@@ -28,6 +38,7 @@
                     <tr>
                     <th scope="row"><%= index + 1 %></th>
                     <td><%= rentals.title %></td>
+                    <td><%= rentals.rental_date.toLocaleDateString('en-us', {weekday: "long", year: "numeric", month: "long", day: "numeric"})%></td>
                     </tr>
                     <% }); %>
 
