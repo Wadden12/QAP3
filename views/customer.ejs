@@ -1,0 +1,45 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="actors content">
+            <h2 class="text-center">Customer Task</h2>
+
+            <form  method ="post" class="form-inline ">
+               
+                <div class="form-group mx-sm-3 mb-2">
+                  <label for="inputPassword2" class="sr-only">Email</label>
+                  <input name="email" type="email" class="form-control" id="inputPassword2" placeholder="Enter Email">
+                </div>
+                <button type="submit" class="btn btn-dark mb-2">Submit</button>
+              </form>
+              <h2><% locals.rental.full_name %> </h2>
+              <% if (locals.rental) { %>
+              <div class="table-responsive">
+                <table class="table table-dark ">
+                <thead>
+                    <tr>
+                        <th scope ="col">#</th>
+                        <th scope ="col">Movie</th>
+                    </tr>
+                </thead>
+             <tbody>
+                <% locals.rental.forEach((rentals, index) => { %>
+                    <tr>
+                    <th scope="row"><%= index + 1 %></th>
+                    <td><%= rentals.title %></td>
+                    </tr>
+                    <% }); %>
+
+             </tbody>
+            
+              </table>
+            </div>
+              <% } %>
+
+          
+        </div>
+        <%- include('./partials/script.ejs') %> 
+    </body>
+    <%- include('./partials/footer.ejs') %>
+</html>
