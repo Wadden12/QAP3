@@ -1,0 +1,53 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+      
+        <% if (locals.store.length > 0) { %> 
+            <div class="container  ">
+            <h2><%= locals.store.store %></h2>
+                
+            <table class="table table-dark table-striped ">
+            <thead>
+                <tr>
+                    <th colspan="2"> Manager Name: <%=locals.store[0].manager%></th>
+                    <th colspan="2"> Store #<%=locals.store[0].store_id%>  
+                    <th colspan="2"> Store: <%=locals.store[0].store%>  
+
+                    </th>
+                   
+                </tr>
+                <tr>
+                    <th scope ="col">#</th>
+                    <th scope ="col">Movies</th>
+                    <th scope ="col"># Rented</th>
+                    <th scope ="col">Rental Dollars</th>
+                    <th scope ="col">Late Fees</th>
+                    <th scope ="col">Total</th>
+                </tr>
+            </thead>
+         <tbody>
+            <% locals.store.forEach((st, index) => { %>
+                <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= st.title %></td>
+                <td><%= st.number_rented_movies%></td>
+                <td>$<%= st.rental_dollars%></td>
+                <td>$<%= st.late_fees%></td>
+                <td>$<%= st.total%></td>
+                </tr>
+                <% }); %>
+
+         </tbody>
+        
+          </table>
+        </div>
+          <% } %>
+
+      
+    </div>
+    <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/script.ejs') %> 
+    </body>
+   
+</html>

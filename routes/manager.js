@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
   let lateRental = await getLateRentals(req.body);
   if (lateRental.length === 0) res.render("norecord");
   else {
-    DEBUGG = console.log(`Late Renal request ${req.body}`);
+    DEBUGG = console.log(`Late Rental request ${req.body}`);
     res.render("manager", { lateRental });
   }
 });

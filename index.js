@@ -16,13 +16,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const customerRouter = require("./routes/customer");
 const managerRouter = require("./routes/manager");
-
+const ownerRouter = require("./routes/owner");
 app.get("/", async (req, res) => {
   res.render("index");
 });
 
 app.use("/customer", customerRouter);
 app.use("/manager", managerRouter);
+app.use("/owner", ownerRouter);
 
 app.use((req, res) => {
   res.status(404).render("404");

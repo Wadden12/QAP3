@@ -1,0 +1,30 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div >
+            <h2 class="text-center">Owner: Rental Income by Film per Store</h2>
+            <div class=" container d-flex flex-column mb-3 ">
+                <h3 class="text-left mr-2">Select a Store</h3>
+                <% if(locals.stores.length > 0) {%> 
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group-vertical mr-2" role="group" aria-label="First group">
+                            <% locals.stores.forEach(store => { %> 
+                               
+                          <button type="button" class="btn  btn-lg btn-block btn-dark">
+                            <a class="text-decoration-none text-white"  href="<%= store.store_id %> "> <%= store.store %></a>
+                           </button>
+                          <%})%>  
+                        </div>
+                      </div>
+                        
+                                     
+            <%}%> 
+          
+        </div>  
+            
+        <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/script.ejs') %> 
+    </body>
+   
+</html>
