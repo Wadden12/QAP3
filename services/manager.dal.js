@@ -12,6 +12,27 @@ let getLateRentals = async (body) => {
   return res.rows;
 };
 
+const verifyManager = async (body) => {
+  const { username, password } = body;
+  DEBUG && console.log(username);
+  DEBUG && console.log(password);
+  let memberQuery = `SELECT password FROM vw_rentals_not_returned
+  WHERE username = '${username}'`;
+  const res = await dal.query(memberQuery);
+  try {
+    if (password === res.rows[0].password) {
+      console.log("Password verified.");
+      return true;
+    } else {
+      console.log("Invalid password.");
+      return false;
+    }
+  } catch (error) {
+    return "Invalid Username";
+  }
+};
+
 module.exports = {
   getLateRentals,
+  verifyManager,
 };

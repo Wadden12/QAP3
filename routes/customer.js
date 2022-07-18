@@ -2,6 +2,7 @@ const express = require("express");
 const { getRentals, getRentalCount } = require("../services/customer.dal");
 const router = express.Router();
 router.use(express.static("public"));
+const Joi = require("joi");
 
 router.get("/", async (req, res) => {
   res.render("customer");
