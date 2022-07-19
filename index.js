@@ -2,6 +2,20 @@
 // Date: July 13,2022
 // QAP 3
 // to launch the app you can use npm start
+//task 1
+/// Sample emails for the customer entry
+// mary.smith@sakilacustomer.org
+// patricia.johnson@sakilacustomer.org
+//linda.williams@sakilacustomer.org
+
+//task 2
+//USERNAME MIKE
+//PASSWORD 8cb2237d0679ca88db6464eac60da96345513964
+
+// USERNAME Jon
+// PASSWORD 8cb2237d0679ca88db6464eac60da96345513964
+
+//task 3 is done with params so no input needed
 
 const express = require("express");
 const app = express();
